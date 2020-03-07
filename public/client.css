@@ -1,23 +1,20 @@
-html 
-{
-background-image: -gradient(to right, grey,white,grey);
-
+html {
+	background-image: linear-gradient(90DEG,#1DB954,#191414);
 }
  
 
-{border-width: 3px;
-	color: white;
-	text-align: center;
-	font-size: xx-large;
-	font-style: italic;
-font-weight: bolder;}
+.title {
+	border-width 	: 3px;
+	color 			: white;
+	text-align 		: center;
+	font-size 		: xx-large;
+	font-style 		: italic;
+	font-weight 	: bolder;
+}
 
-.abc
-{
-
-font-size: xx-large;
-text-align: left;
-
- 
-
+.subtitle{
+	font-size 	: xx-large;
+	text-align 	: left;
+	color       : black;
+	font-weight : bold;       
 }
