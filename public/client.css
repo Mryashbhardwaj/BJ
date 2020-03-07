@@ -1,11 +1,11 @@
 html 
 {
-g
+background-image: -gradient(to right, grey,white,grey);
 
 }
  
-p
-{border-width: 3pxwhite;
+
+{border-width: 3px;
 	color: white;
 	text-align: center;
 	font-size: xx-large;
@@ -18,6 +18,6 @@ font-weight: bolder;}
 font-size: xx-large;
 text-align: left;
 
-
+ 
 
 }
