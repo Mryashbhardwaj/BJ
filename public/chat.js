@@ -7,7 +7,7 @@ var btn = document.getElementById("send");
 var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
 var bjAudio = document.getElementById("bjAudio");
-
+var initialised = false;
 // emiting events
 btn.addEventListener("click", (event) => {
   console.log("called click");
@@ -24,8 +24,12 @@ message.addEventListener("keypress", function() {
     handle: handle.value
   });
 });
-
-socket.emit("initialise", {});
+bjAudio.onplay = () => {
+  if (!initialised) {
+    socket.emit("initialise", {});
+    bjAudio.pause();
+  }
+};
 
 // listen for events
 socket.on("chat", (data) => {
@@ -43,6 +47,7 @@ socket.on("initialise", (data) => {
   //   var lag = time.getTime() - data.servertime;
   //   console.log(data.progress);
   bjAudio.currentTime = data.progress;
+  initialised = true;
   bjAudio.play();
 });
 
