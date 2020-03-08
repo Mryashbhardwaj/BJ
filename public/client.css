@@ -17,7 +17,7 @@ html {
 {
 	font-size 	: 75px;
 	text-align 	: left;
-	color       : black;
+	color       : white;
 	font-weight : bold;  
 	font-family: 'Montserrat', sans-serif;
 }
@@ -47,10 +47,3 @@ button
 {
 	font-size: 25px;
 }
-div{
-	background-color:lightgrey;
-	width: 80%;
-	border: 100px transparent;
-	padding: 100px;
-	margin: -13px;
-}		
