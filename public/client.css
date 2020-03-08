@@ -29,7 +29,7 @@ html {
 {
 	font-size 	: 75px;
 	text-align 	: left;
-	color       : black;
+	color       : white;
 	font-weight : bold;  
 	font-family: 'Montserrat', sans-serif;
 }
@@ -37,4 +37,5 @@ html {
 .space
 {
 	font-size: 25px;
-}	
+}
+
