@@ -4,9 +4,6 @@ const app = express();
 app.use(express.static("public"));
 
 // routes
-app.get("/hello", (req, res) => {
-  res.send("Hello World!");
-});
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -22,7 +19,11 @@ io.on("connection", function(socket) {
   console.log("made scoket connection");
 
   socket.on("initialise", (data) => {
-    socket.emit("initialise", { nowPlaying: "sample.mp3", progress: 23 });
+    socket.emit("initialise", {
+      nowPlaying: "sample.mp3",
+      servertime: Dare,
+      progress: 23
+    });
   });
 
   socket.on("chat", (data) => {
