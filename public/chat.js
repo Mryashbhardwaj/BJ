@@ -36,10 +36,14 @@ socket.on("feedback", (data) => {
   feedback.innerHTML = "<p><em>" + data.handle + " is typing ... </em></p>";
 });
 socket.on("initialise", (data) => {
-  // feedback.innerHTML = "<p><em>" + data.handle + " is typing ... </em></p>";
   bjAudio.load();
+  //   var time = new Date();
+  //   console.log(data.servertime);
+  //   console.log(time.getTime());
+  //   var lag = time.getTime() - data.servertime;
+  //   console.log(data.progress);
   bjAudio.currentTime = data.progress;
-  console.log(data);
+  bjAudio.play();
 });
 
 // clear the typing feedback

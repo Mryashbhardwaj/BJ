@@ -19,9 +19,10 @@ io.on("connection", function(socket) {
   console.log("made scoket connection");
 
   socket.on("initialise", (data) => {
+    var time = new Date();
     socket.emit("initialise", {
       nowPlaying: "sample.mp3",
-      servertime: Dare,
+      servertime: time.getTime(),
       progress: 23
     });
   });
