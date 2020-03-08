@@ -22,8 +22,7 @@ io.on("connection", function(socket) {
   console.log("made scoket connection");
 
   socket.on("initialise", (data) => {
-    console.log("initi ");
-    socket.emit("initialise", { init: "yash" });
+    socket.emit("initialise", { nowPlaying: "sample.mp3", progress: 23 });
   });
 
   socket.on("chat", (data) => {

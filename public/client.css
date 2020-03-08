@@ -12,6 +12,14 @@ html {
 	*/font-weight 	: bolder;
  
 }
+.inputFeilds {
+	position: fixed;
+	left: 0;
+	bottom: 3%;
+	height: 1%;
+	width: 100%;
+	color: white;
+}
 
 .subtitle
 {
@@ -22,35 +30,15 @@ html {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.CHATBOX
-{
-	text-align  : right;
-
-}
 form
 {
 	vertical-align : right;
 	align-items    : right; 
 }	
 
-input 
-{
-	float: right;
-}
 
 
-button
-{
-	float: right;
-}
 .space
 {
 	font-size: 25px;
-}
-div{
-	background-color:lightgrey;
-	width: 80%;
-	border: 100px transparent;
-	padding: 100px;
-	margin: -13px;
-}		
+}	
