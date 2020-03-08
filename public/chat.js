@@ -6,6 +6,7 @@ var handle = document.getElementById("handle");
 var btn = document.getElementById("send");
 var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
+var bjAudio = document.getElementById("bjAudio");
 
 // emiting events
 btn.addEventListener("click", (event) => {
@@ -29,14 +30,14 @@ socket.emit("initialise", {});
 // listen for events
 socket.on("chat", (data) => {
   output.innerHTML +=
-    "<p><strong>" + data.handle + ":</strong>" + data.message + "</p>";
+    "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
 });
 socket.on("feedback", (data) => {
   feedback.innerHTML = "<p><em>" + data.handle + " is typing ... </em></p>";
 });
 socket.on("initialise", (data) => {
   // feedback.innerHTML = "<p><em>" + data.handle + " is typing ... </em></p>";
-  bjAudio.play;
+  bjAudio.load();
   console.log(data);
 });
 
