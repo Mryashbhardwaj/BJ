@@ -4,15 +4,14 @@ html {
 
 .title
  {
-	font-family: 'Oxanium', cursive;
-	position: fixed;
-	top:0;
-	border-width 	: 3px;
+	font-family     : 'Oxanium', cursive;
+	
+	/*line-height: 0*/;
 	color 			: white;
 	text-align 		: center;
-	font-size 		: 150px;
-	/*/font-style 		: italic;
-	*/font-weight 	: bolder;
+	font-size 		: 100px;
+	bottom          : 5%
+	font-weight 	: bolder;
  
 }
 
@@ -25,17 +24,32 @@ html {
 	color: white;
 }
 
-.subtitle
+.songtitle
 {
-	font-size 	: 75px;
-	text-align 	: left;
+	text-align 	: center;
 	color       : white;
-	font-weight : bold;  
 	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.014em;
+	font-weight: 600;
+	font-size: 39px;
+	top: 20%;
 }
 
 .space
 {
 	font-size: 25px;
+}
+
+.tryingscroll{
+	width: 2px;
+	height: 1px;
+	overflow-y : scroll;
+	  	
+
+}
+
+#bjAudio{
+	
+	top   :  15%;
 }
 
