@@ -1,0 +1,56 @@
+html {
+	background-image: linear-gradient(90DEG,#1DB954,#191414);
+}
+.title
+ {
+	font-family: 'Oxanium', cursive;
+	border-width 	: 3px;
+	color 			: white;
+	text-align 		: center;
+	font-size 		: 150px;
+	/*/font-style 		: italic;
+	*/font-weight 	: bolder;
+ 
+}
+
+.subtitle
+{
+	font-size 	: 75px;
+	text-align 	: left;
+	color       : black;
+	font-weight : bold;  
+	font-family: 'Montserrat', sans-serif;
+}
+
+.CHATBOX
+{
+	text-align  : right;
+
+}
+form
+{
+	vertical-align : right;
+	align-items    : right; 
+}	
+
+input 
+{
+	float: right;
+}
+
+
+button
+{
+	float: right;
+}
+.space
+{
+	font-size: 25px;
+}
+div{
+	background-color:lightgrey;
+	width: 80%;
+	border: 100px transparent;
+	padding: 100px;
+	margin: -13px;
+}		

@@ -1,1 +1,35 @@
-hi this is a sample page
+
+<!DOCTYPE html>
+<html>		
+<head>
+	<title>BHARDWAJ JOCKEY</title>
+	<link rel="stylesheet" type="text/css" href="client.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+	 <link href="https://fonts.googleapis.com/css?family=Montserrat|Oxanium&display=swap" rel="stylesheet">
+</head>
+<body>
+		<script src="/chat.js"></script>
+		<p class="title">BHARDWAJ JOCKEY</p>
+		<p class="subtitle">Now Playing</p>
+		<audio id="bjAudio" controls>
+			<source src="horse.ogg" type="audio/mp3">
+		</audio>
+		<div>
+			<div id = "chat-window">
+				<div id="output"></div>
+				<div id="feedback"></div>
+			</div>
+			<button id="send" type="button">send</button>
+			<input class="right" class="CHATBOX" id="message" type="text" placeholder="TALK TO DJ" />
+			<input class="right" class="CHATBOX" id="handle" type="text" placeholder="name" />
+		</div>
+		<script src="/chat.js"></script>
+		<!-- <div>
+			<p>SONG1</p> 
+			<p>SONG 2</p>
+			<p>SONG 3</p>
+			<p>SONG 3</p>
+			<p>SONG 4</p>
+		</div> -->
+	</body>
+</html> 
