@@ -1,5 +1,6 @@
 html {
-	background-image: linear-gradient(90DEG,#1DB954,#191414);
+	height: 100%;
+	background-image: linear-gradient( 180DEG, #ffd89b,#19547b);
 }
 
 .title
@@ -9,9 +10,11 @@ html {
 	/*line-height: 0*/;
 	color 			: white;
 	text-align 		: center;
-	font-size 		: 100px;
-	bottom          : 5%
+	font-size 		: 31px;
+	bottom          : 5%;
 	font-weight 	: bolder;
+	top             : 20%;
+	 
  
 }
 
@@ -21,18 +24,20 @@ html {
 	bottom: 3%;
 	height: 1%;
 	width: 100%;
+	height: 10
 	color: white;
+	border-radius: 10px; 
 }
 
 .songtitle
 {
-	text-align 	: center;
-	color       : white;
-	font-family: 'Montserrat', sans-serif;
-	letter-spacing: 0.014em;
-	font-weight: 600;
-	font-size: 39px;
-	top: 20%;
+	text-align 	   : center;
+	color          : white;
+	font-family    : 'Montserrat', sans-serif;
+	letter-spacing : 0.014em;
+	font-weight    : 600;
+	font-size      : 29px;
+	top            : 20%;
 }
 
 .space
@@ -44,12 +49,18 @@ html {
 	width: 2px;
 	height: 1px;
 	overflow-y : scroll;
-	  	
-
 }
 
-#bjAudio{
-	
+#bjAudio{	
 	top   :  15%;
 }
 
+#output{
+	background-color:  ;
+	opacity:  0.5;
+}
+
+.logobj{
+	width: 35%;
+	height: 10%;
+}
