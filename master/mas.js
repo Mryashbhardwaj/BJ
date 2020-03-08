@@ -7,8 +7,7 @@ function dodrop(event)
   output("File Count: " + count + "\n");
 
     for (var i = 0; i < files.length; i++) {
-      output(" File " + i + ":\n(" + (typeof files[i]) + ") : <" + files[i] + " > " +
-             files[i].name + " " + files[i].size + "\n");
+      output(" File " + (i+1)  + " : " + files[i].name + " " + files[i].size + "\n");
     }
 }
 
