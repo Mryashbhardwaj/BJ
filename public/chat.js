@@ -36,6 +36,7 @@ socket.on("feedback", (data) => {
 });
 socket.on("initialise", (data) => {
   // feedback.innerHTML = "<p><em>" + data.handle + " is typing ... </em></p>";
+  bjAudio.play;
   console.log(data);
 });
 

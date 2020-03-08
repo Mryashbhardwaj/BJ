@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            JOCKEY
+        </title>
+        <link rel="stylesheet" href="mas.css">
+        <script src="mas.js"></script>
+    </head>
+    <body>
+        <h1>JOCKEY</h1>
+         <!-- <script>
+            function dragover_handler(ev) {
+             ev.preventDefault();
+             ev.dataTransfer.dropEffect = "move";
+            }
+            function drop_handler(ev) {
+             ev.preventDefault();
+             // Get the id of the target and add the moved element to the target's DOM
+             const data = ev.dataTransfer.getData("text/plain");
+             ev.target.appendChild(document.getElementById(data));
+            }
+            </script>
+         -->
+
+        <div id="output" class="file_input" style="min-height: 200px; white-space: pre; border: 1px solid black; width: 60%; background-color: thistle;"
+        ondragenter="document.getElementById('output').textContent = ''; event.stopPropagation(); event.preventDefault();"
+        ondragover="event.stopPropagation(); event.preventDefault();"
+        ondrop="event.stopPropagation(); event.preventDefault();
+        dodrop(event);">
+        DROP FILES HERE FROM FINDER OR EXPLORER
+        <p>
+
+        </p>
+        <p>
+
+        </p>
+        <p>
+            
+        </p>
+        </div>    
+<!--             
+            <p id="target" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">Drop Zone</p>
+     -->
+    </body>
+
+</html>
