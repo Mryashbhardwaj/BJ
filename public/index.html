@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>"BHARDWAJ JOCKEY</title>
+	<title>BHARDWAJ JOCKEY</title>
 	<link rel="stylesheet" type="text/css" href="client.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Oxanium&display=swap" rel="stylesheet" />
@@ -12,17 +12,21 @@
 
 <body>
 	<button onclick="beMaster">Be Master</button>
-	<h1 class="title">
-		<img src="logo.png" class=" logobj" style="vertical-align: middle;" />BHARDWAJ JOCKEY
-	</h1>
-	<!-- LIBRARY -->
-	<div id="musicLibrary" style="width: 50%;height: 200px;font-size: 25px;font-weight: bold;border: 1px dotted black;overflow: scroll;">
-	
+	<div class="Row">
+		<h1 class="title" >
+			<img src="logo.png" class=" logobj" style="vertical-align: middle;" /> BHARDWAJ JOCKEY
+		</h1>
+		<div class="Column" >
+				<div id="musicLibrary" style="width: 98%;height: 300px;font-size: 25px;font-weight: bold;border: 1px dotted black;overflow: scroll;"></div>
+		
+				<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data" >
+					<input type="file" name="filetoupload" >
+					<input type="submit" />
+				</form>
+		</div>		
 	</div>
-	<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data">
-		<input type="file" name="filetoupload" />
-		<input type="submit" />
-	</form>
+	
+	
 	<p id="songtitle" class="songtitle">
 		Now Playing -
 		<span id="nowPlaying" style="color: white">
@@ -43,8 +47,8 @@
 		<div id="feedback"></div>
 	</div>
 	<div class="inputFeilds">
-		<input id="handle" type="text" placeholder="name" style="width: 10%;font-size: 40px ; border-radius: 20px;" />
-		<input id="message" type="text" placeholder="TALK TO DJ"
+		<input id="handle" type="text" placeholder=" name" style="width: 10%;font-size: 40px ; border-radius: 20px;" />
+		<input id="message" type="text" placeholder=" TALK TO DJ"
 			style="width: 75%;font-size: 40px;border-radius: 20px;" />
 		<button id="send" type="button" style="width: 10%;font-size: 40px ;border-radius: 20px;">
 			send

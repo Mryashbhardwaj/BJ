@@ -7,7 +7,7 @@ html {
  {
 	font-family     : 'Oxanium', cursive;
 	color 			: white;
-	text-align 		: center;
+	text-align 		: left;
 	font-size 		: 31px;
 	bottom          : 5%;
 	font-weight 	: bolder;
@@ -57,6 +57,16 @@ html {
 }
 
 .logobj{
-	width: 35%;
-	height: 10%;
+	width: 45%;
+	
+	padding-bottom: 150px;
 }
+
+.Row {
+    display: table;
+    }
+.Column {
+    display: table-cell;
+    width: 40%;
+    vertical-align: top;
+    }
