@@ -15,6 +15,7 @@ const app = express();
 app.use(express.static("public"));
 
 // routes
+app.get("/filelist", (req, res) => {});
 app.post("/fileupload", (req, res) => {
   var form = new formidable.IncomingForm();
   form.parse(req, function(err, fields, files) {

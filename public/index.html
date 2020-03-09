@@ -1,48 +1,52 @@
-
 <!DOCTYPE html>
-<html>		
+<html>
+
 <head>
 	<title>BHARDWAJ JOCKEY</title>
-	
-	<link rel="stylesheet" type="text/css" href="client.css">
+	<link rel="stylesheet" type="text/css" href="client.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
-	 <link href="https://fonts.googleapis.com/css?family=Montserrat|Oxanium&display=swap" rel="stylesheet">
-	 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Oxanium&display=swap" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-		<script src="/chat.js"></script>
-		<h1 class="title">
-			<img src="logo.png" class=" logobj" style="vertical-align: middle;">
-			
-			
-				BHARDWAJ JOCKEY
-				
-			
-		</h1>
-		<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data">
-			<input type="file" name="filetoupload"><input type="submit">
-		</form>
-		<p id="songtitle" class="songtitle">Now Playing -<span style="color: white"> SMELLS LIKE TEEN SPIRIT BY NIRVANA</span></p>
-		
-		<audio id="bjAudio" preload="auto" style="width: 100%;" controls>
-			<source src="music/sample.mp3" type="audio/mp3">
-		</audio>
-		<div >
-			<div id="output"  
-				style= "width: 100%;
+	<script src="/chat.js"></script>
+	<h1 class="title">
+		<img src="logo.png" class=" logobj" style="vertical-align: middle;" />BHARDWAJ JOCKEY
+	</h1>
+	<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data">
+		<input type="file" name="filetoupload" />
+		<input type="submit" />
+	</form>
+	<p id="songtitle" class="songtitle">
+		Now Playing -
+		<span style="color: white">
+			SMELLS LIKE TEEN SPIRIT BY NIRVANA
+		</span>
+	</p>
+
+	<audio id="bjAudio" preload="auto" style="width: 100%;" controls>
+		<source src="music/sample.mp3" type="audio/mp3" />
+	</audio>
+	<div>
+		<div id="output" style="width: 100%;
 						height: 200px;
 						font-size: 45px;
 						font-weight: bold;
 						border: 1px dotted black;
-						overflow: scroll;">
-							</div>		
-			<div id="feedback"></div>
-		</div>
-		<div class="inputFeilds">
-			<input  id="handle" type="text" placeholder="name" style="width: 10%;font-size: 40px ; border-radius: 20px;" />
-			<input  id="message" type="text" placeholder="TALK TO DJ" style="width: 75%;font-size: 40px;border-radius: 20px;"/>
-			<button id="send" type="button" style="width: 10%;font-size: 40px ;border-radius: 20px;">send</button>
-			<script src="/chat.js"></script>
-		</div> 
-	</body>
-</html> 
+						overflow: scroll;"></div>
+		<div id="feedback"></div>
+	</div>
+	<div class="inputFeilds">
+		<input id="handle" type="text" placeholder="name" style="width: 10%;font-size: 40px ; border-radius: 20px;" />
+		<input id="message" type="text" placeholder="TALK TO DJ"
+			style="width: 75%;font-size: 40px;border-radius: 20px;" />
+		<button id="send" type="button" style="width: 10%;font-size: 40px ;border-radius: 20px;">
+			send
+		</button>
+		<script src="/chat.js"></script>
+	</div>
+</body>
+
+</html>
