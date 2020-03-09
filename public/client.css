@@ -6,7 +6,6 @@ html {
 .title
  {
 	font-family     : 'Oxanium', cursive;
-	
 	/*line-height: 0*/;
 	color 			: white;
 	text-align 		: center;
@@ -14,17 +13,14 @@ html {
 	bottom          : 5%;
 	font-weight 	: bolder;
 	top             : 20%;
-	 
- 
 }
 
 .inputFeilds {
 	position: fixed;
 	left: 0;
-	bottom: 3%;
+	bottom: 7%;
 	height: 1%;
 	width: 100%;
-	height: 10
 	color: white;
 	border-radius: 10px; 
 }
@@ -56,7 +52,7 @@ html {
 }
 
 #output{
-	background-color:  ;
+	background-color: grey ;
 	opacity:  0.5;
 }
 

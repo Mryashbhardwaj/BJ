@@ -7,6 +7,9 @@ var btn = document.getElementById("send");
 var output = document.getElementById("output");
 var feedback = document.getElementById("feedback");
 var bjAudio = document.getElementById("bjAudio");
+var musicSubmit = document.getElementById("musicSubmit");
+var songtitle = document.getElementById("songtitle");
+
 var initialised = false;
 // emiting events
 btn.addEventListener("click", (event) => {
