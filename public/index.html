@@ -11,17 +11,21 @@
 </head>
 
 <body>
-	<script src="/chat.js"></script>
+	<button onclick="beMaster">Be Master</button>
 	<h1 class="title">
 		<img src="logo.png" class=" logobj" style="vertical-align: middle;" />BHARDWAJ JOCKEY
 	</h1>
+	<!-- LIBRARY -->
+	<div id="musicLibrary" style="width: 50%;height: 200px;font-size: 25px;font-weight: bold;border: 1px dotted black;overflow: scroll;">
+	
+	</div>
 	<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data">
 		<input type="file" name="filetoupload" />
 		<input type="submit" />
 	</form>
 	<p id="songtitle" class="songtitle">
 		Now Playing -
-		<span style="color: white">
+		<span id="nowPlaying" style="color: white">
 			SMELLS LIKE TEEN SPIRIT BY NIRVANA
 		</span>
 	</p>
@@ -45,8 +49,12 @@
 		<button id="send" type="button" style="width: 10%;font-size: 40px ;border-radius: 20px;">
 			send
 		</button>
-		<script src="/chat.js"></script>
 	</div>
+	<script >
+		$(document).ready(function() {
+   			$.getScript("chat.js");
+		});
+	</script>
 </body>
 
 </html>

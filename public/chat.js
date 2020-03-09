@@ -9,8 +9,21 @@ var feedback = document.getElementById("feedback");
 var bjAudio = document.getElementById("bjAudio");
 var musicSubmit = document.getElementById("musicSubmit");
 var songtitle = document.getElementById("songtitle");
+var nowPlaying = document.getElementById("nowPlaying");
+var musicLibrary = document.getElementById("musicLibrary");
+
+var isMaster = false;
+function beMaster() {
+  isMaster = true;
+}
 
 var initialised = false;
+$.get("/filelist", function(data) {
+  data.forEach((element) => {
+    musicLibrary.innerHTML += "<lable>" + element + "</lable><br>";
+  });
+});
+
 // emiting events
 btn.addEventListener("click", (event) => {
   console.log("called click");
@@ -35,6 +48,12 @@ bjAudio.onplay = () => {
 };
 
 // listen for events
+socket.on("libraryUpdate", (data) => {
+  musicLibrary.innerHTML = "";
+  data.musicLibrary.forEach((element) => {
+    musicLibrary.innerHTML += "<lable>" + element + "</lable><br>";
+  });
+});
 socket.on("chat", (data) => {
   output.innerHTML +=
     "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
