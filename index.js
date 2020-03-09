@@ -24,16 +24,14 @@ app.post("/fileupload", (req, res) => {
   form.parse(req, function(err, fields, files) {
     var oldpath = files.filetoupload.path;
     newFile = files.filetoupload.name;
-    console.log(newFile);
     var newpath = "public/music/" + files.filetoupload.name;
     fs.rename(oldpath, newpath, function(err) {
       res.write("File uploaded and moved!");
       res.end();
+      musicLibrary.push(newFile);
+      io.sockets.emit("libraryUpdate", { musicLibrary });
     });
   });
-  console.log(newFile);
-  musicLibrary.push(newFile);
-  socketConnection.emit("libraryUpdate", { musicLibrary });
 });
 
 var server = app.listen(8000, () => {
@@ -59,8 +57,12 @@ io.on("connection", function(socket) {
     io.sockets.emit("chat", data);
   });
 
+  socket.on("changeSong", (songName) => {
+    console.log(songName);
+    socket.broadcast.emit("changeSong", songName);
+  });
+
   socket.on("feedback", (data) => {
-    console.log(data);
     socket.broadcast.emit("feedback", data);
   });
 });

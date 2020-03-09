@@ -14,14 +14,18 @@ var musicLibrary = document.getElementById("musicLibrary");
 
 var isMaster = false;
 function beMaster() {
+  console.log("you are master now");
+  alert("welcome master");
   isMaster = true;
 }
-
+function updateLib(data) {
+  data.forEach((element) => {
+    musicLibrary.innerHTML += `<lable onclick='play("${element}")'> # ${element}</lable><br><br>`;
+  });
+}
 var initialised = false;
 $.get("/filelist", function(data) {
-  data.forEach((element) => {
-    musicLibrary.innerHTML += "<lable>" + element + "</lable><br>";
-  });
+  updateLib(data);
 });
 
 // emiting events
@@ -35,7 +39,6 @@ btn.addEventListener("click", (event) => {
 });
 
 message.addEventListener("keypress", function() {
-  console.log("keypress");
   socket.emit("feedback", {
     handle: handle.value
   });
@@ -50,10 +53,21 @@ bjAudio.onplay = () => {
 // listen for events
 socket.on("libraryUpdate", (data) => {
   musicLibrary.innerHTML = "";
-  data.musicLibrary.forEach((element) => {
-    musicLibrary.innerHTML += "<lable>" + element + "</lable><br>";
-  });
+  updateLib(data.musicLibrary);
 });
+function setSong(song) {
+  bjAudio.setAttribute("src", "music/" + song);
+  nowPlaying.textContent = song;
+}
+
+function play(elementname) {
+  if (isMaster) {
+    console.log(elementname);
+    setSong(elementname);
+    socket.emit("changeSong", elementname);
+    bjAudio.play();
+  }
+}
 socket.on("chat", (data) => {
   output.innerHTML +=
     "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
@@ -63,12 +77,13 @@ socket.on("feedback", (data) => {
 });
 socket.on("initialise", (data) => {
   bjAudio.load();
-  //   var time = new Date();
-  //   console.log(data.servertime);
-  //   console.log(time.getTime());
-  //   var lag = time.getTime() - data.servertime;
-  //   console.log(data.progress);
   bjAudio.currentTime = data.progress;
+  initialised = true;
+  bjAudio.play();
+});
+socket.on("changeSong", (songName) => {
+  bjAudio.load();
+  setSong(songName);
   initialised = true;
   bjAudio.play();
 });
