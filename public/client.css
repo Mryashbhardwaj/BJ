@@ -6,13 +6,13 @@ html {
 .title
  {
 	font-family     : 'Oxanium', cursive;
-	/*line-height: 0*/;
 	color 			: white;
 	text-align 		: center;
 	font-size 		: 31px;
 	bottom          : 5%;
 	font-weight 	: bolder;
 	top             : 20%;
+	float           : left;
 }
 
 .inputFeilds {
@@ -59,5 +59,4 @@ html {
 .logobj{
 	width: 35%;
 	height: 10%;
-align-content: 15%;
 }
