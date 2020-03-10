@@ -5,6 +5,11 @@ var fs = require("fs");
 var socketConnection;
 var musicLibrary = [];
 
+var currentStatus = {
+  song: "",
+  time: 0,
+  progress: 0
+};
 // read files in music library when server on
 fs.readdir("public/music", (err, list) => {
   musicLibrary = list;
@@ -42,24 +47,24 @@ var io = socket(server);
 
 io.on("connection", function(socket) {
   // get Library Update
+  console.log(socket);
   socketConnection = socket;
-  socket.on("initialise", (data) => {
-    var time = new Date();
-    socket.emit("initialise", {
-      nowPlaying: "sample.mp3",
-      servertime: time.getTime(),
-      progress: 23
-    });
+  socket.on("initialise", () => {
+    socket.emit("initialise", currentStatus);
   });
 
   socket.on("chat", (data) => {
     console.log(data);
     io.sockets.emit("chat", data);
   });
+  socket.on("pause", () => {
+    socket.broadcast.emit("pause");
+  });
 
-  socket.on("changeSong", (songName) => {
-    console.log(songName);
-    socket.broadcast.emit("changeSong", songName);
+  socket.on("changeSong", (status) => {
+    console.log(status);
+    currentStatus = status;
+    socket.broadcast.emit("changeSong", status);
   });
 
   socket.on("feedback", (data) => {

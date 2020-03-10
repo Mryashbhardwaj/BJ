@@ -18,13 +18,11 @@
 		</h1>
 		<div class="Column" >
 				<div id="musicLibrary" style="width: 98%;height: 300px;font-size: 25px;font-weight: bold;border: 1px dotted black;overflow: scroll;"></div>
-		
-				<form id="musicSubmit" action="fileupload" method="post" enctype="multipart/form-data" target="upload_target">
+				<form id="musicSubmit"  method="post" enctype="multipart/form-data" >
 					<input type="file" name="filetoupload" >
 					<input type="submit" />
 				</form>
-				<iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>                 
-
+				<div id="uploadresponse"></div>
 		</div>		
 	</div>
 	
@@ -33,10 +31,11 @@
 		Now Playing -
 		<span id="nowPlaying" style="color: white">
 		</span>
+		<button onclick="joinParty()">JOIN Party</button>
 	</p>
 
 	<audio id="bjAudio" preload="auto" style="width: 100%;" controls>
-		<source type="audio/mp3" />
+		<source src="" type="audio/mp3" />
 	</audio>
 	<div>
 		<div id="feedback"></div>
