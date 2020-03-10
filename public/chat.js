@@ -14,7 +14,8 @@ var musicLibrary = document.getElementById("musicLibrary");
 
 var files = [];
 var isMaster = false;
-// bjAudio.controls = false;
+var lag = 0;
+bjAudio.controls = true;
 
 form.addEventListener(
   "submit",
@@ -45,28 +46,52 @@ form.addEventListener(
   },
   false
 );
-
+function setSong(song) {
+  bjAudio.setAttribute("src", "music/" + song);
+  nowPlaying.textContent = song;
+}
+function getTime() {
+  const time = new Date();
+  return time.getTime();
+}
 function beMaster() {
   console.log("you are master now");
   alert("welcome master");
   isMaster = true;
   bjAudio.controls = true;
 }
-function joinParty() {
-  socket.emit("initialise", {});
+function sync() {
+  if (isMaster) {
+    socket.emit("sync", { time: getTime() });
+  }
 }
 
+function play(elementname) {
+  if (isMaster) {
+    setSong(elementname);
+    initialised = true;
+    bjAudio.play();
+  }
+}
 function updateLib(data) {
   data.forEach((element, index) => {
     musicLibrary.innerHTML += `<lable onclick='play("${element}")'> ${index +
       1}.) ${element}</lable><br><br>`;
   });
 }
+
 var initialised = false;
 $.get("/filelist", function(data) {
   updateLib(data);
 });
 
+socket.on("sync", (data) => {
+  lag = getTime() - data.time;
+  console.log("lag->", lag);
+});
+function joinParty() {
+  socket.emit("initialise", {});
+}
 // emiting events
 btn.addEventListener("click", (event) => {
   console.log("called click");
@@ -107,28 +132,7 @@ socket.on("libraryUpdate", (data) => {
 socket.on("pause", () => {
   bjAudio.pause();
 });
-function setSong(song) {
-  bjAudio.setAttribute("src", "music/" + song);
-  nowPlaying.textContent = song;
-}
-function getTime() {
-  const time = new Date();
-  return time.getTime();
-}
 
-function play(elementname) {
-  if (isMaster) {
-    // console.log(elementname);
-    setSong(elementname);
-    initialised = true;
-    // socket.emit("changeSong", {
-    //   song: elementname,
-    //   time: getTime(),
-    //   progress: 0
-    // });
-    bjAudio.play();
-  }
-}
 socket.on("chat", (data) => {
   output.innerHTML +=
     "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
@@ -141,6 +145,7 @@ function syncSong(status) {
   console.log(status);
   var temp = status.progress + Math.floor(getTime() - status.time) / 1000;
   bjAudio.currentTime = temp;
+  // console.log(bjAudio.currentTime);
 }
 
 socket.on("initialise", (status) => {

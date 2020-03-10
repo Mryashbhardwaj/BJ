@@ -23,6 +23,10 @@ app.use(express.static("public"));
 app.get("/filelist", (req, res) => {
   res.send(musicLibrary);
 });
+app.get("/ntp", (req, res) => {
+  var time = new Date();
+  res.send(String(time.getTime()));
+});
 app.post("/fileupload", (req, res) => {
   var form = new formidable.IncomingForm();
   var newFile;
@@ -47,12 +51,25 @@ var io = socket(server);
 
 io.on("connection", function(socket) {
   // get Library Update
-  console.log(socket);
+  // console.log(socket.handshake);
+  var clienttime = new Date(socket.handshake.time);
+  var serverTime = new Date();
+  console.log(
+    "address:",
+    socket.handshake.address,
+    " LAG-> ",
+    serverTime.getTime() - clienttime.getTime()
+  );
   socketConnection = socket;
   socket.on("initialise", () => {
     socket.emit("initialise", currentStatus);
   });
-
+  socket.on("initialise", () => {
+    socket.emit("initialise", currentStatus);
+  });
+  socket.on("sync", (data) => {
+    socket.broadcast.emit("sync", data);
+  });
   socket.on("chat", (data) => {
     console.log(data);
     io.sockets.emit("chat", data);
